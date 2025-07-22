@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Snack Attack Clicker</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: sans-serif;
+      background-color: #f8f8f8;
+      padding-top: 60px;
+    }
+    #counter {
+      font-size: 2rem;
+      margin: 20px;
+    }
+    #clickBtn {
+      padding: 20px 40px;
+      font-size: 1.5rem;
+      background-color: #c1e1c1;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #message {
+      font-size: 1.2rem;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Snack Attack Clicker</h1>
+  <div id="counter">Snacks Collected: 0</div>
+  <button id="clickBtn">Click Me!</button>
+  <div id="message">Start your snack quest!</div>
+
+  <script>
+    const button = document.getElementById("clickBtn");
+    const counterDisplay = document.getElementById("counter");
+    const message = document.getElementById("message");
+
+    let count = 0;
+
+    button.addEventListener("click", () => {
+      count++;
+      counterDisplay.textContent = "Snacks Collected: " + count;
+
+      if (count === 10) {
+        message.textContent = "You’re warming up!";
+      } else if (count === 25) {
+        message.textContent = "Snack stash getting serious.";
+        document.body.style.backgroundColor = "#f0e68c"; // light yellow
+      } else if (count === 50) {
+        message.textContent = "Do you ever stop?";
+        document.body.style.backgroundColor = "#e0bbff"; // lavender
+      } else if (count === 100) {
+        message.textContent = "OK... You win. Have all the snacks!";
+        button.disabled = true;
+        button.textContent = "Maxed Out!";
+      }
+    });
+  </script>
+
+</body>
+</html>
